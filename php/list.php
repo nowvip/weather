@@ -95,9 +95,11 @@ if ($origin_text !== false) {
     // 输出结果
     echo $origin_text;
     
+    // 要写入的文件路径
+    $filePath = __DIR__ . '/result.txt';
     
     // 使用 file_put_contents() 函数写入内容，并覆盖原有内容
-    $result = file_put_contents('result.txt', $origin_text);
+    $result = file_put_contents($filePath, $origin_text);
     
     // 检查是否成功写入
     if ($result !== false) {
