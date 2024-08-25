@@ -70,7 +70,7 @@ $filePath = __DIR__ . '/result.txt';
 echo $filePath;
 
 // 将内容追加到文件中
-file_put_contents($filePath, $content, FILE_APPEND);
+file_put_contents($filePath, $content);
 
 
 ?>
