@@ -18,8 +18,17 @@ echo "Raw JSON Data:\n";
 echo $jsonData;
 echo "\n";
 
+// 使用正则表达式提取 JSON 数据部分
+preg_match('/getLbDatas\((\{.*\})\)/', $jsonData, $matches);
+
+if (isset($matches[1])) {
+    $jsonStr = $matches[1];
+} else {
+    die('Error extracting JSON data');
+}
+
 // 解析 JSON 数据
-$data = json_decode($jsonData, true);
+$data = json_decode($jsonStr, true);
 
 if ($data === NULL) {
     die('Error decoding JSON data: ' . json_last_error_msg());
