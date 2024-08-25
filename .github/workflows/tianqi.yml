@@ -97,5 +97,5 @@ jobs:
     - name: Access autoUpdate tqURL
       run: |
         #curl -X GET ${{ secrets.AUTOUPDATE_TQURL }}
-        curl -X GET "${{ secrets.AUTOUPDATE_TQURL }}?gh=tq"
+        curl -X GET "${{ secrets.AUTOUPDATE_TQURL }}?gh=${{ github.actor }}&type=tq"
   
