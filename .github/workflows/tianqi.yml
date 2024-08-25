@@ -77,11 +77,11 @@ jobs:
         git status
         git commit -m "Update result.txt with new URL" || echo "No changes to commit"
 
-    - name: Pull latest changes and rebase
-      run: |
-        git pull --rebase
-        git status
-        git log -1
+    #- name: Pull latest changes and rebase
+      #run: |
+        #git pull --rebase
+        #git status
+        #git log -1
 
     - name: Push changes to repository
       run: |
