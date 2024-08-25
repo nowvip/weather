@@ -74,7 +74,7 @@ jobs:
     - name: Add and Commit result.txt tq.txt changes
       run: |
         git add php/result.txt
-        git add php/sq.txt
+        git add php/tq.txt
         git status
         git commit -m "Update result.txt with new URL" || echo "No changes to commit"
 
