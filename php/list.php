@@ -34,14 +34,26 @@ if ($data === NULL) {
     die('Error decoding JSON data: ' . json_last_error_msg());
 }
 
-// 处理 JSON 数据
+// 获取当前 UTC 日期
+$currentDateUTC = date('Y-m-d');
+
+// 将当前 UTC 日期转换为北京时间
+$datetime = new DateTime($currentDateUTC . ' 00:00:00', new DateTimeZone('UTC'));
+$datetime->setTimezone(new DateTimeZone('Asia/Shanghai'));
+$currentDateBeijing = $datetime->format('Y-m-d');
+
+// 处理 JSON 数据并输出符合条件的数据
 foreach ($data['data'] as $item) {
-    $url = $item['url'];
-    $title = $item['title'];
     $updateTime = $item['updateTime'];
-    
-    echo "URL: $url\n";
-    echo "Title: $title\n";
-    echo "Update Time: $updateTime\n";
+    $itemDate = explode(' ', $updateTime)[0]; // 提取日期部分
+
+    if ($itemDate === $currentDateBeijing) {
+        $url = $item['url'];
+        $title = $item['title'];
+        
+        echo "URL: $url\n";
+        echo "Title: $title\n";
+        echo "Update Time: $updateTime\n";
+    }
 }
 ?>
