@@ -66,7 +66,7 @@ foreach ($data['data'] as $item) {
 echo $content;
 
 // 要写入的文件路径
-//$filePath = __DIR__ . '/result.txt';
+$filePath = __DIR__ . '/result.txt';
 echo $filePath;
 
 // 将内容追加到文件中
