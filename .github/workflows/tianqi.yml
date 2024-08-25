@@ -1,8 +1,10 @@
-name: Daily Job
+name: Daily Wheather Job
 on:
   schedule:
-    - cron: "0 21 * * *"  #5:00
-    - cron: "30 7 * * *"   #15:30  
+    - cron: "0 0 * * *"  #8:00
+    - cron: "0 1 * * *"  #9:00
+    - cron: "20 5 * * *"  #13:20
+    - cron: "20 12 * * *"   #20:20
   workflow_dispatch:
 
 jobs:
