@@ -54,6 +54,7 @@ foreach ($data['data'] as $item) {
         echo "URL: $url\n";
         echo "Title: $title\n";
         echo "Update Time: $updateTime\n";
+        break;
     }
 }
 ?>
