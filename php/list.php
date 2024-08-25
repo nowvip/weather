@@ -89,15 +89,15 @@ if ($origin_text !== false) {
     
     //echo $replacement;
     
-    $alltxt = preg_replace($pattern, $replacement, $alltxt);
+    $origin_text = preg_replace($pattern, $replacement, $origin_text);
     
     
     // 输出结果
-    echo alltxt;
+    echo $origin_text;
     
     
     // 使用 file_put_contents() 函数写入内容，并覆盖原有内容
-    $result = file_put_contents('result.txt', alltxt);
+    $result = file_put_contents('result.txt', $origin_text);
     
     // 检查是否成功写入
     if ($result !== false) {
