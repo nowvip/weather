@@ -66,10 +66,10 @@ foreach ($data['data'] as $item) {
 echo $content;
 
 // 要写入的文件路径
-$filePath = __DIR__ . '/tq.txt';
+$filePath_tq = __DIR__ . '/tq.txt';
 
 // 使用 file_put_contents() 函数写入内容，并覆盖原有内容
-$result_tq = file_put_contents($filePath, $content);
+$result_tq = file_put_contents($filePath_tq, $content);
 
 // 检查是否成功写入
 if ($result_tq !== false) {
