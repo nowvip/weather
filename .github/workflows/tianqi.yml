@@ -62,6 +62,11 @@ jobs:
       run: |
         php php/list.php  # 运行你的 PHP 脚本
 
+    - name: Check git status
+      run: |
+        git status
+        git log -1
+
     - name: Commit and Push result.txt changes
       run: |
         git add php/result.txt
