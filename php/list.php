@@ -65,6 +65,21 @@ foreach ($data['data'] as $item) {
 
 echo $content;
 
+// 要写入的文件路径
+$filePath = __DIR__ . '/tq.txt';
+
+// 使用 file_put_contents() 函数写入内容，并覆盖原有内容
+$result_tq = file_put_contents($filePath, $content);
+
+// 检查是否成功写入
+if ($result_tq !== false) {
+    echo "仅更新文件写入成功";
+} else {
+    echo "仅更新文件写入失败"; 
+}
+
+
+
 // 获取环境变量
 $origin_url = getenv('ORIGIN_URL');
 
