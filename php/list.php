@@ -70,7 +70,12 @@ $filePath = __DIR__ . '/result.txt';
 echo $filePath;
 
 // 将内容追加到文件中
-file_put_contents($filePath, $content);
+$result = file_put_contents($filePath, $content);
 
+if ($result === false) {
+    echo "Failed to write to file: " . print_r(error_get_last(), true);
+} else {
+    echo "URL has been written to $filePath\n";
+}
 
 ?>
