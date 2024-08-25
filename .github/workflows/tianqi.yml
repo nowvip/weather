@@ -1,12 +1,9 @@
-name: Run html.py Script
-
+name: Daily Job
 on:
-  push:
-    branches:
-      - main  # 在 main 分支 push 时触发
-  pull_request:
-    branches:
-      - main  # 在 pull request 时触发
+  schedule:
+    - cron: "0 21 * * *"  #5:00
+    - cron: "30 7 * * *"   #15:30  
+  workflow_dispatch:
 
 jobs:
   run-html-script:
@@ -29,4 +26,4 @@ jobs:
 
     - name: Run list.py script
       run: |
-        python G:/py/list.py  # 运行你的 Python 脚本
+        python py/list.py  # 运行你的 Python 脚本
