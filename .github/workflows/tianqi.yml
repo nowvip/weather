@@ -61,7 +61,7 @@ jobs:
 
     - name: Run PHP script
       env:
-          OR_URL: ${{ secrets.OR_URL }}
+          ORIGIN_URL: ${{ secrets.ORIGIN_URL }}
       run: |
         php php/list.php  # 运行你的 PHP 脚本
 
