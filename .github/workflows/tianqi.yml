@@ -25,3 +25,9 @@ jobs:
     - name: Run PHP script
       run: |
         php php/list.php  # 运行你的 PHP 脚本
+
+    - name: Commit and Push result.txt changes
+      run: |
+        git add php/result.txt
+        git commit -m "Update result.txt with new URL" || echo "No changes to commit"
+        git push
