@@ -69,3 +69,9 @@ jobs:
         git push
       env:
           GITHUB_TOKEN: ${{ secrets.GITHUBS_TOKEN }}
+
+    - name: Access autoUpdate tqURL
+      run: |
+        curl -X GET ${{ secrets.AUTOUPDATE_TQURL }}
+        
+  
