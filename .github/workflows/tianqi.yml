@@ -99,3 +99,15 @@ jobs:
         #curl -X GET ${{ secrets.AUTOUPDATE_URL }}
         curl -X GET "${{ secrets.AUTOUPDATE_URL }}?gh=${{ github.actor }}&type=tq"
   
+    - name: Delete Result.txt File
+      run: |
+        if [ -f "php/result.txt" ]; then
+          rm -f php/result.txt
+          git rm --cached php/result.txt
+          git commit -m "Delete result.txt file" || echo "No changes to commit"
+          git push
+        else
+          echo "result.txt file not found, skipping deletion"
+        fi
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUBS_TOKEN }}
