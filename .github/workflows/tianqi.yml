@@ -18,6 +18,10 @@ jobs:
       with:
         php-version: '8.2'  # 设置 PHP 版本
 
+    - name: Print working directory
+      run: pwd
+
+
     - name: Run PHP script
       run: |
         php php/list.php  # 运行你的 PHP 脚本
