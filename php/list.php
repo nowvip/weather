@@ -1,11 +1,11 @@
 <?php
 $arr_urls = array(
-    'https://www.weather.com.cn/pubm/zhaowen.htm',
-    'https://www.weather.com.cn/pubm/wujian.htm',
-    'https://www.weather.com.cn/pubm/video_lianbo_2021.htm',        
+    '朝闻预报' => 'https://www.weather.com.cn/pubm/zhaowen.htm',
+    '午间预报' => 'https://www.weather.com.cn/pubm/wujian.htm',
+    '联播预报' => 'https://www.weather.com.cn/pubm/video_lianbo_2021.htm',        
 );
 
-foreach($arr_urls as $urls){
+foreach($arr_urls as $urlname => $urls){
 // 使用 cURL 获取 JSON 数据
 $ch = curl_init();
 curl_setopt($ch, CURLOPT_URL, $urls);
@@ -48,9 +48,9 @@ foreach ($data['data'] as $item) {
     $itemDate = explode(' ', $updateTime)[0]; // 提取日期部分
     
     $url = $item['url'];
-    $title = $item['title'];
+    //$title = $item['title'];
     
-    echo "$title," . "$url\n";
+    echo $urlname . "," . "$url\n";
     echo "Update Time: $updateTime\n";
     break;
     
