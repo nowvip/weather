@@ -65,6 +65,50 @@ foreach ($data['data'] as $item) {
 
 echo $content;
 
+// 获取环境变量
+$origin_url = getenv('OR_URL');
+
+// 从 源URL 获取文件内容
+$origin_text = file_get_contents($orgin_url);
+
+// 检查是否成功获取内容
+if ($origin_text !== false) {
+    // 输出内容
+    echo $origin_text;
+
+    // 去掉$content开头和结尾的空白行，以防止多余的换行
+    $content = trim($content);
+    
+    // 正则表达式匹配并替换“天气节目,#genre#”分组内容
+    $pattern = '/(天气预报,#genre#\R)([\s\S]*?)(?=\R\S.*#genre#|\z)/';
+    $replacement = '$1' . $content;
+    
+    //echo $replacement;
+    
+    $alltxt = preg_replace($pattern, $replacement, $alltxt);
+    
+    
+    // 输出结果
+    echo alltxt;
+    
+    
+    // 使用 file_put_contents() 函数写入内容，并覆盖原有内容
+    $result = file_put_contents('result.txt', alltxt);
+    
+    // 检查是否成功写入
+    if ($result !== false) {
+        echo "更新文件写入成功";
+    } else {
+        echo "更新文件写入失败"; 
+    }
+
+}else {
+        echo "源文件读取失败"; 
+}
+
+
+    
+/*
 // 要写入的文件路径
 $filePath = __DIR__ . '/result.txt';
 #echo $filePath;
@@ -77,5 +121,5 @@ if ($result === false) {
 } else {
     echo "URL has been written to $filePath\n";
 }
-
+*/
 ?>
