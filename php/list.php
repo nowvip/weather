@@ -5,6 +5,7 @@ $arr_urls = array(
     '联播预报' => 'https://www.weather.com.cn/pubm/video_lianbo_2021.htm',        
 );
 
+$content='';
 foreach($arr_urls as $urlname => $urls){
 // 使用 cURL 获取 JSON 数据
 $ch = curl_init();
@@ -64,7 +65,7 @@ foreach ($data['data'] as $item) {
 
 
 // 要写入的文件路径
-$filePath = __DIR__ . '/php/result.txt';
+$filePath = __DIR__ . '/result.txt';
 
 // 将内容追加到文件中
 file_put_contents($filePath, $content, FILE_APPEND);
