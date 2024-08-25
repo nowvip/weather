@@ -36,7 +36,7 @@ jobs:
 
     - name: Create Result.txt File
       run: |
-        echo "Initial content" > php/result.txt
+        echo "" > php/result.txt
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUBS_TOKEN }}
 
