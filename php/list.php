@@ -66,7 +66,7 @@ foreach ($data['data'] as $item) {
 echo $content;
 
 // 获取环境变量
-$origin_url = getenv('OR_URL');
+$origin_url = getenv('ORIGIN_URL');
 
 // 从 源URL 获取文件内容
 $origin_text = file_get_contents($orgin_url);
