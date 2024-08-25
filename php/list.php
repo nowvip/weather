@@ -50,7 +50,7 @@ foreach ($data['data'] as $item) {
     $url = $item['url'];
     //$title = $item['title'];
     
-    echo $urlname . "," . "$url\n";
+    echo $urlname . $itemDate ."," . "$url\n";
     echo "Update Time: $updateTime\n";
     break;
     
