@@ -52,7 +52,7 @@ foreach ($data['data'] as $item) {
     $url = $item['url'];
     //$title = $item['title'];
     
-    echo $urlname . ' '. $itemDate ."," . "$url\n";
+    //echo $urlname . ' '. $itemDate ."," . "$url\n";
     //echo "Update Time: $updateTime\n";
 
     $content .= $urlname . ' '. $itemDate ."," . "$url\n";
@@ -63,12 +63,13 @@ foreach ($data['data'] as $item) {
 
 }
 
+echo $content;
 
 // 要写入的文件路径
-$filePath = __DIR__ . '/result.txt';
+//$filePath = __DIR__ . '/result.txt';
 
 // 将内容追加到文件中
-file_put_contents($filePath, $content, FILE_APPEND);
+//file_put_contents($filePath, $content, FILE_APPEND);
 
 
 ?>
