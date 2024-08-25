@@ -71,7 +71,7 @@ jobs:
         git diff --cached
         git log -1
 
-    - name: Add and Commit result.txt changes
+    - name: Add and Commit result.txt tq.txt changes
       run: |
         git add php/result.txt
         git add php/sq.txt
