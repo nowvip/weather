@@ -63,19 +63,34 @@ jobs:
       run: |
         php php/list.php  # 运行你的 PHP 脚本
 
-    - name: Check git status
+    - name: Check git status before commit
       run: |
+        git status
+        git diff --cached
+        git log -1
+
+    - name: Add and Commit result.txt changes
+      run: |
+        git add php/result.txt
+        git status
+        git commit -m "Update result.txt with new URL" || echo "No changes to commit"
+
+    - name: Pull latest changes and rebase
+      run: |
+        git pull --rebase
         git status
         git log -1
 
-    - name: Commit and Push result.txt changes
+    - name: Push changes to repository
       run: |
-        git add php/result.txt
-        git commit -m "Update result.txt with new URL" || echo "No changes to commit"
-        git pull --rebase
         git push
       env:
-          GITHUB_TOKEN: ${{ secrets.GITHUBS_TOKEN }}
+        GITHUB_TOKEN: ${{ secrets.GITHUBS_TOKEN }}
+
+    - name: Check git status after push
+      run: |
+        git status
+        git log -1
 
     - name: Access autoUpdate tqURL
       run: |
