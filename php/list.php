@@ -1,7 +1,14 @@
 <?php
+$arr_urls = array(
+    'https://www.weather.com.cn/pubm/zhaowen.htm',
+    'https://www.weather.com.cn/pubm/wujian.htm',
+    'https://www.weather.com.cn/pubm/video_lianbo_2021.htm',        
+);
+
+foreach($arr_urls as $urls){
 // 使用 cURL 获取 JSON 数据
 $ch = curl_init();
-curl_setopt($ch, CURLOPT_URL, 'https://www.weather.com.cn/pubm/zhaowen.htm');
+curl_setopt($ch, CURLOPT_URL, $urls);
 curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 
 $jsonData = curl_exec($ch);
@@ -56,5 +63,7 @@ foreach ($data['data'] as $item) {
         echo "Update Time: $updateTime\n";
         break;
     }
+}
+
 }
 ?>
