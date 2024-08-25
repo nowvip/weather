@@ -52,7 +52,7 @@ foreach ($data['data'] as $item) {
     //$title = $item['title'];
     
     echo $urlname . ' '. $itemDate ."," . "$url\n";
-    echo "Update Time: $updateTime\n";
+    //echo "Update Time: $updateTime\n";
     break;
     
 }
