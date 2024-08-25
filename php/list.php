@@ -67,7 +67,7 @@ echo $content;
 
 // 要写入的文件路径
 $filePath = __DIR__ . '/result.txt';
-echo $filePath;
+#echo $filePath;
 
 // 将内容追加到文件中
 $result = file_put_contents($filePath, $content);
