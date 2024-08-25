@@ -68,6 +68,10 @@ echo $content;
 // 获取环境变量
 $origin_url = getenv('ORIGIN_URL');
 
+if (empty($origin_url)) {
+    die('The Origin URL is not set or is empty');
+}
+
 // 从 源URL 获取文件内容
 $origin_text = file_get_contents($orgin_url);
 
@@ -103,7 +107,7 @@ if ($origin_text !== false) {
     }
 
 }else {
-        echo "源文件读取失败"; 
+        die('Failed to get content from the Origin URL'); 
 }
 
 
