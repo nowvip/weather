@@ -53,9 +53,21 @@ foreach ($data['data'] as $item) {
     
     echo $urlname . ' '. $itemDate ."," . "$url\n";
     //echo "Update Time: $updateTime\n";
+
+    $content .= $urlname . ' '. $itemDate ."," . "$url\n";
+    
     break;
     
 }
 
 }
+
+
+// 要写入的文件路径
+$filePath = __DIR__ . '/php/result.txt';
+
+// 将内容追加到文件中
+file_put_contents($filePath, $content, FILE_APPEND);
+
+
 ?>
