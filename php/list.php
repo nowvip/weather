@@ -1,10 +1,9 @@
 <?php
-// 初始化 cURL
+// 使用 cURL 获取 JSON 数据
 $ch = curl_init();
 curl_setopt($ch, CURLOPT_URL, 'https://www.weather.com.cn/pubm/zhaowen.htm');
 curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 
-// 执行 cURL 请求
 $jsonData = curl_exec($ch);
 
 if ($jsonData === FALSE) {
@@ -14,11 +13,16 @@ if ($jsonData === FALSE) {
 // 关闭 cURL 资源
 curl_close($ch);
 
+// 打印原始 JSON 数据
+echo "Raw JSON Data:\n";
+echo $jsonData;
+echo "\n";
+
 // 解析 JSON 数据
 $data = json_decode($jsonData, true);
 
 if ($data === NULL) {
-    die('Error decoding JSON data');
+    die('Error decoding JSON data: ' . json_last_error_msg());
 }
 
 // 处理 JSON 数据
