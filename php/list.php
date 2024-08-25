@@ -73,7 +73,7 @@ if (empty($origin_url)) {
 }
 
 // 从 源URL 获取文件内容
-$origin_text = file_get_contents($orgin_url);
+$origin_text = file_get_contents($origin_url);
 
 // 检查是否成功获取内容
 if ($origin_text !== false) {
