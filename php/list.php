@@ -1,5 +1,9 @@
 <?php
-$arr_urls = ${{ secrets.URL }};
+$arr_urls = array(
+    '朝闻预报' => 'https://www.weather.com.cn/pubm/zhaowen.htm',
+    '午间预报' => 'https://www.weather.com.cn/pubm/wujian.htm',
+    '联播预报' => 'https://www.weather.com.cn/pubm/video_lianbo_2021.htm',        
+);
 
 foreach($arr_urls as $urlname => $urls){
 // 使用 cURL 获取 JSON 数据
