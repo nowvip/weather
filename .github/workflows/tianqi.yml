@@ -20,6 +20,35 @@ jobs:
         git config --global user.email "actions@github.com"
         git config --global user.name "GitHub Actions"
 
+
+    - name: Delete Result.txt File
+      run: |
+        if [ -f "php/result.txt" ]; then
+          rm -f php/result.txt
+          git rm --cached php/result.txt
+          git commit -m "Delete result.txt file" || echo "No changes to commit"
+          git push
+        else
+          echo "result.txt file not found, skipping deletion"
+        fi
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUBS_TOKEN }}
+
+    - name: Create Result.txt File
+      run: |
+        echo "Initial content" > php/result.txt
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUBS_TOKEN }}
+
+    - name: Commit new result.txt
+      run: |
+        git add php/result.txt
+        git commit -m "Create new result.txt file" || echo "No changes to commit"
+        git push
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUBS_TOKEN }}
+
+
     - name: Set up PHP
       uses: shivammathur/setup-php@v2
       with:
