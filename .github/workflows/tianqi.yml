@@ -29,8 +29,9 @@ jobs:
           git push
         else
           echo "tq.txt not found, skipping deletion"
+        fi
       env:
-        PAT: ${{ secrets.GITHUB_TOKEN }}
+        PAT: ${{ secrets.GITHUBS_TOKEN }}
     
     - name: Create php directory and tq.txt
       run: |
