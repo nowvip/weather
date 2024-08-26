@@ -79,7 +79,7 @@ if ($result_tq !== false) {
 }
 
 
-
+/*
 // 获取环境变量
 $origin_url = getenv('ORIGIN_URL');
 
@@ -127,7 +127,7 @@ if ($origin_text !== false) {
         die('Failed to get content from the Origin URL'); 
 }
 
-
+*/
     
 /*
 // 要写入的文件路径
