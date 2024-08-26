@@ -54,12 +54,12 @@ foreach ($data['data'] as $item) {
     
     $url = $item['url'];
     $title = $item['title'];
-
+    //echo $title .'\n';
     // 使用正则表达式匹配时间格式
     if (preg_match('/\d{2}:\d{2}/', $title, $matches)) {
-        $time = $matches[0];
-        //echo $time;
+        $time = $matches[0];        
         $time = ' ' . $time;
+        //echo $time '\n';
     } else {
         //echo "未找到时间";
         $time='';
@@ -69,7 +69,7 @@ foreach ($data['data'] as $item) {
     //echo $urlname . $time .' '. $itemDate ."," . "$url\n";
     //echo "Update Time: $updateTime\n";
 
-    $content .= $urlname . ' '. $itemDate ."," . "$url\n";
+    $content .= $urlname . $time . ' '. $itemDate ."," . "$url\n";
     
     break;
     
