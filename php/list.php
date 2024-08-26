@@ -5,7 +5,7 @@ $arr_urls = array(
     '2台 08:00' => 'https://www.weather.com.cn/pubm/diyiyinxiang.htm',
     '4台' => 'https://www.weather.com.cn/pubm/cctv4.htm',
     '5台 13:00' => 'https://www.weather.com.cn/pubm/tiyu.htm',
-    '新闻联播预报' => 'https://www.weather.com.cn/pubm/video_lianbo_2021.htm',
+    '联播 预报' => 'https://www.weather.com.cn/pubm/video_lianbo_2021.htm',
 );
 
 $content='';
