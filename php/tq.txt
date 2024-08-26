@@ -1,6 +1,0 @@
-1台 07:55 08-26,https://vod.weathertv.cn/video/2024/8/26/202408261724632998094.mp4
-1台 12:30 08-26,https://vod.weathertv.cn/video/2024/8/26/202408261724649203915.mp4
-2台 08:00 08-26,https://vod.weathertv.cn/video/2024/8/26/202408261724632996617.mp4
-4台 12:54 08-26,https://vod.weathertv.cn/video/2024/8/26/202408261724651008453.mp4
-5台 13:00 08-26,https://vod.weathertv.cn/video/2024/8/26/202408261724649506541.mp4
-新闻联播预报 08-25,https://vod.weathertv.cn/video/2024/8/25/202408251724598790068.mp4
