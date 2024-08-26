@@ -1,11 +1,11 @@
 <?php
 $arr_urls = array(
-    '朝闻预报' => 'https://www.weather.com.cn/pubm/zhaowen.htm',
-    '午间预报' => 'https://www.weather.com.cn/pubm/wujian.htm',
+    '1台' => 'https://www.weather.com.cn/pubm/zhaowen.htm',
+    '1台 12:30' => 'https://www.weather.com.cn/pubm/wujian.htm',
+    '2台 08:00' => 'https://www.weather.com.cn/pubm/diyiyinxiang.htm',
+    '4台' => 'https://www.weather.com.cn/pubm/cctv4.htm',
+    '5台 13:00' => 'https://www.weather.com.cn/pubm/tiyu.htm',
     '联播预报' => 'https://www.weather.com.cn/pubm/video_lianbo_2021.htm',
-    'CCTV2 08:30' => 'https://www.weather.com.cn/pubm/diyiyinxiang.htm',
-    'CCTV4预报' => 'https://www.weather.com.cn/pubm/cctv4.htm',
-    'CCTV5 13:00' => 'https://www.weather.com.cn/pubm/tiyu.htm',
 );
 
 $content='';
@@ -53,9 +53,20 @@ foreach ($data['data'] as $item) {
     $itemDate = substr($updateTime, 5, 5);//从第6个字符开始，提取5个字符,提取月份和日期部分
     
     $url = $item['url'];
-    //$title = $item['title'];
-    
-    //echo $urlname . ' '. $itemDate ."," . "$url\n";
+    $title = $item['title'];
+
+    // 使用正则表达式匹配时间格式
+    if (preg_match('/\d{2}:\d{2}/', $title, $matches)) {
+        $time = $matches[0];
+        //echo $time;
+        $time = ' ' . $time;
+    } else {
+        //echo "未找到时间";
+        $time='';
+    }
+
+
+    //echo $urlname . $time .' '. $itemDate ."," . "$url\n";
     //echo "Update Time: $updateTime\n";
 
     $content .= $urlname . ' '. $itemDate ."," . "$url\n";
