@@ -2,7 +2,10 @@
 $arr_urls = array(
     '朝闻预报' => 'https://www.weather.com.cn/pubm/zhaowen.htm',
     '午间预报' => 'https://www.weather.com.cn/pubm/wujian.htm',
-    '联播预报' => 'https://www.weather.com.cn/pubm/video_lianbo_2021.htm',        
+    '联播预报' => 'https://www.weather.com.cn/pubm/video_lianbo_2021.htm',
+    'CCTV2 08:30' => 'https://www.weather.com.cn/pubm/diyiyinxiang.htm',
+    'CCTV4预报' => 'https://www.weather.com.cn/pubm/cctv4.htm',
+    'CCTV5 13:00' => 'https://www.weather.com.cn/pubm/tiyu.htm',
 );
 
 $content='';
