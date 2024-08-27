@@ -78,6 +78,103 @@ foreach ($data['data'] as $item) {
 
 }
 
+//echo $content;
+
+//排序
+// 将内容按行拆分
+$lines = explode("\n", $content);
+
+// 定义一个函数用于将标题转换为时间戳
+function parseDateTime($title) {
+    if (preg_match('/(\d{2}:\d{2}) (\d{2}-\d{2})/', $title, $matches)) {
+        $time = $matches[1];
+        $date = $matches[2];
+        $datetime = DateTime::createFromFormat('d-m H:i', $date . ' ' . $time);
+        return $datetime ? $datetime->getTimestamp() : 0;
+    } elseif (preg_match('/(\d{2}-\d{2})/', $title, $matches)) {
+        $date = $matches[1];
+        $datetime = DateTime::createFromFormat('d-m H:i', $date . ' 00:00');
+        return $datetime ? $datetime->getTimestamp() : 0;
+    } else {
+        return 0;
+    }
+}
+
+// 对内容进行排序
+usort($lines, function($a, $b) {
+    $titleA = explode(',', $a)[0];
+    $titleB = explode(',', $b)[0];
+    $timestampA = parseDateTime($titleA);
+    $timestampB = parseDateTime($titleB);
+    return $timestampB - $timestampA; // 从大到小排序
+});
+
+// 获取最大日期和次大日期
+$dates = array();
+foreach ($lines as $line) {
+    $title = explode(',', $line)[0];
+    if (preg_match('/(\d{2}-\d{2})/', $title, $matches)) {
+        $date = $matches[1];
+        if (!in_array($date, $dates)) {
+            $dates[] = $date;
+        }
+    }
+}
+$dates = array_unique($dates);
+rsort($dates); // 从大到小排序
+
+// 确定最大日期和次大日期
+$maxDate = isset($dates[0]) ? $dates[0] : '';
+$secondMaxDate = isset($dates[1]) ? $dates[1] : '';
+
+// 替换最大日期为“(今天)”和次大日期为“(昨天)”
+$lines = array_map(function($line) use ($maxDate, $secondMaxDate) {
+    $parts = explode(',', $line);
+    $title = $parts[0];
+    $url = $parts[1];
+
+    if (preg_match('/(\d{2}-\d{2})/', $title, $matches)) {
+        $date = $matches[1];
+        if ($date === $maxDate) {
+            $title = preg_replace('/\d{2}-\d{2}/', '(今天)', $title);
+        } elseif ($date === $secondMaxDate) {
+            $title = preg_replace('/\d{2}-\d{2}/', '(昨天)', $title);
+        }
+    } else {
+        // 对于没有日期的标题，直接标记为“(未知)”
+        $title = preg_replace('/\d{2}-\d{2}/', '(未知)', $title);
+    }
+
+    // 特殊处理“联播 预报”的排序
+    if (strpos($title, '联播 预报') !== false) {
+        if (strpos($title, '(今天)') !== false) {
+            $priority = 1; // 高优先级，排在最上面
+        } elseif (strpos($title, '(昨天)') !== false || strpos($title, '(未知)') !== false) {
+            $priority = 3; // 低优先级，排在最下面
+        } else {
+            $priority = 2; // 中优先级，默认排序
+        }
+    } else {
+        $priority = 2; // 默认排序
+    }
+
+    return ['title' => $title, 'url' => $url, 'priority' => $priority];
+}, $lines);
+
+// 按优先级排序，优先级1排在最上面，优先级3排在最下面
+usort($lines, function($a, $b) {
+    if ($a['priority'] === $b['priority']) {
+        return parseDateTime($b['title']) - parseDateTime($a['title']); // 相同优先级按时间排序
+    }
+    return $a['priority'] - $b['priority']; // 按优先级排序
+});
+
+// 重新组合内容
+$content = implode("\n", array_map(function($line) {
+    return $line['title'] . ',' . $line['url'];
+}, $lines));
+
+// 输出排序结果
 echo $content;
 
 // 要写入的文件路径
