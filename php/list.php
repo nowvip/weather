@@ -130,6 +130,12 @@ $secondMaxDate = isset($dates[1]) ? $dates[1] : '';
 // 替换最大日期为“(今天)”和次大日期为“(昨天)”
 $lines = array_map(function($line) use ($maxDate, $secondMaxDate) {
     $parts = explode(',', $line);
+
+    // 检查数组长度
+    if (count($parts) < 2) {
+        return $line; // 如果数组长度不足2，返回原行
+    }
+
     $title = $parts[0];
     $url = $parts[1];
 
