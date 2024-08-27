@@ -190,7 +190,7 @@ $content = implode("\n", array_map(function($line) {
 
 
 // 输出结果
-echo $content;
+echo $content ."\n";
 
 // 要写入的文件路径
 $filePath_tq = __DIR__ . '/tq.txt';
