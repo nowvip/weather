@@ -1,4 +1,4 @@
-name: Wb Automation
+name: Wb
 
 on:
   workflow_dispatch:
