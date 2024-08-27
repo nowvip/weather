@@ -2,6 +2,7 @@ from selenium import webdriver
 from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.common.by import By
+from bs4 import BeautifulSoup
 import time
 import os
 
@@ -38,21 +39,23 @@ try:
         file.write(page_source)
 
     # Extract video URLs from page source
-    # You need to parse the HTML and extract video URLs (e.g., using BeautifulSoup)
-    # This is a placeholder; implement your extraction logic here
+    soup = BeautifulSoup(page_source, "html.parser")
+    
+    # Find the <video-player> tag and extract the src attribute
+    video_player_tag = soup.find("video-player")
+    if video_player_tag:
+        video_sources = video_player_tag.get("options")
+        if video_sources:
+            # Extract src from the options attribute
+            start_idx = video_sources.find("src: '") + len("src: '")
+            end_idx = video_sources.find("'", start_idx)
+            video_url = video_sources[start_idx:end_idx]
+            
+            # Add the base URL if necessary
+            if video_url.startswith('//'):
+                video_url = 'https:' + video_url
+            
+            print("Extracted video URL:", video_url)
 
 finally:
     driver.quit()
-
-from bs4 import BeautifulSoup
-
-# Parse the HTML page source
-with open("page_source.html", "r") as file:
-    soup = BeautifulSoup(file, "html.parser")
-
-# Find video URLs (example, adjust the selector to match the actual HTML structure)
-video_urls = [video['src'] for video in soup.find_all('video')]
-
-# Print or save video URLs
-for url in video_urls:
-    print(url)
