@@ -23,4 +23,4 @@ jobs:
 
     - name: Run Selenium tests
       run: |
-        python your_test_script.py  # 替换为你的测试脚本
+        python py/tqyb.py  # 替换为你的测试脚本
