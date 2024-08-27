@@ -1,4 +1,4 @@
-name: Daily Wheather Job
+name: Daily Weather Job
 on:
   schedule:
     - cron: "0 0 * * *"  #8:00
