@@ -43,3 +43,16 @@ try:
 
 finally:
     driver.quit()
+
+from bs4 import BeautifulSoup
+
+# Parse the HTML page source
+with open("page_source.html", "r") as file:
+    soup = BeautifulSoup(file, "html.parser")
+
+# Find video URLs (example, adjust the selector to match the actual HTML structure)
+video_urls = [video['src'] for video in soup.find_all('video')]
+
+# Print or save video URLs
+for url in video_urls:
+    print(url)
