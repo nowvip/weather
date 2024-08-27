@@ -1,11 +1,11 @@
 <?php
 $arr_urls = array(
     '1台' => 'https://www.weather.com.cn/pubm/zhaowen.htm',
-    '2台 08:00' => 'https://www.weather.com.cn/pubm/diyiyinxiang.htm',
+    '2台' => 'https://www.weather.com.cn/pubm/diyiyinxiang.htm',
     '1台 12:30' => 'https://www.weather.com.cn/pubm/wujian.htm',
     '4台' => 'https://www.weather.com.cn/pubm/cctv4.htm',
-    '5台 13:00' => 'https://www.weather.com.cn/pubm/tiyu.htm',
-    '7台 13:00' => 'https://www.weather.com.cn/pubm/cctv7.htm',
+    '5台' => 'https://www.weather.com.cn/pubm/tiyu.htm',
+    '7台' => 'https://www.weather.com.cn/pubm/cctv7.htm',
     '联播 预报' => 'https://www.weather.com.cn/pubm/video_lianbo_2021.htm',
 );
 
@@ -53,20 +53,24 @@ foreach ($data['data'] as $item) {
     $updateTime = $item['updateTime'];
     //$itemDate = explode(' ', $updateTime)[0]; // 提取日期部分
     $itemDate = substr($updateTime, 5, 5);//从第6个字符开始，提取5个字符,提取月份和日期部分
-    
+    $itemTime = substr($updateTime, 11, 5);//从第6个字符开始，提取5个字符,提取月份和日期部分
+       
     $url = $item['url'];
     $title = $item['title'];
     //echo $title .'\n';
+    $time='';
     // 使用正则表达式匹配时间格式
     if (preg_match('/\d{2}:\d{2}/', $title, $matches)) {
         $time = $matches[0];        
         $time = ' ' . $time;
-        //echo $time '\n';
-    } else {
-        //echo "未找到时间";
-        $time='';
+    } else {       
+        if (preg_match('/\d{2}:\d{2}/', $urlname, $matches)) {
+	        $time = $matches[0];        
+	        $time = '';        
+        } elseif(strpos($urlname, '联播') === false ) {
+        	$time= ' ' . $itemTime;
+        }
     }
-
 
     //echo $urlname . $time .' '. $itemDate ."," . "$url\n";
     //echo "Update Time: $updateTime\n";
