@@ -15,6 +15,7 @@ foreach($arr_urls as $urlname => $urls){
 $ch = curl_init();
 curl_setopt($ch, CURLOPT_URL, $urls);
 curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false); // 忽略证书验证
 
 $jsonData = curl_exec($ch);
 
@@ -130,6 +131,12 @@ $secondMaxDate = isset($dates[1]) ? $dates[1] : '';
 // 替换最大日期为“(今天)”和次大日期为“(昨天)”
 $lines = array_map(function($line) use ($maxDate, $secondMaxDate) {
     $parts = explode(',', $line);
+
+    // 检查数组长度，确保有两个部分
+    if (count($parts) < 2) {
+        return $line; // 如果数组长度不足2，返回原行
+    }
+
     $title = $parts[0];
     $url = $parts[1];
 
@@ -146,33 +153,37 @@ $lines = array_map(function($line) use ($maxDate, $secondMaxDate) {
     }
 
     // 特殊处理“联播 预报”的排序
+    $priority = 2; // 默认优先级
     if (strpos($title, '联播 预报') !== false) {
         if (strpos($title, '(今天)') !== false) {
             $priority = 1; // 高优先级，排在最上面
         } elseif (strpos($title, '(昨天)') !== false || strpos($title, '(未知)') !== false) {
             $priority = 3; // 低优先级，排在最下面
-        } else {
-            $priority = 2; // 中优先级，默认排序
         }
-    } else {
-        $priority = 2; // 默认排序
     }
 
     return ['title' => $title, 'url' => $url, 'priority' => $priority];
 }, $lines);
 
+// 过滤掉空值
+$lines = array_filter($lines);
+
 // 按优先级排序，优先级1排在最上面，优先级3排在最下面
 usort($lines, function($a, $b) {
-    if ($a['priority'] === $b['priority']) {
-        return parseDateTime($b['title']) - parseDateTime($a['title']); // 相同优先级按时间排序
+    if (isset($a['priority']) && isset($b['priority'])) {
+        if ($a['priority'] === $b['priority']) {
+            return parseDateTime($b['title']) - parseDateTime($a['title']); // 相同优先级按时间排序
+        }
+        return $a['priority'] - $b['priority']; // 按优先级排序
     }
-    return $a['priority'] - $b['priority']; // 按优先级排序
+    return 0; // 如果没有优先级则不排序
 });
 
 // 重新组合内容
 $content = implode("\n", array_map(function($line) {
     return $line['title'] . ',' . $line['url'];
 }, $lines));
+
 
 // 输出结果
 echo $content;
