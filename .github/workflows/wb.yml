@@ -4,7 +4,7 @@ on:
   workflow_dispatch:
 
 jobs:
-  selenium:
+  build:
     runs-on: ubuntu-latest
 
     steps:
@@ -14,13 +14,12 @@ jobs:
     - name: Set up Python
       uses: actions/setup-python@v4
       with:
-        python-version: '3.x'
+        python-version: '3.12'  # 设置 Python 版本
 
     - name: Install dependencies
       run: |
-        pip install selenium
-        pip install webdriver-manager
+        python -m pip install --upgrade pip
+        pip install selenium webdriver-manager beautifulsoup4
 
-    - name: Run Selenium tests
-      run: |
-        python py/tqyb.py  # 替换为你的测试脚本
+    - name: Run script
+      run: python py/tqyb.py  # 替换为你的测试脚本路径
