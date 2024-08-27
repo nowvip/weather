@@ -1,0 +1,28 @@
+name: Wb Automation
+
+on:
+  workflow_dispatch:
+
+jobs:
+  automate:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Set up Docker
+        uses: docker/setup-buildx-action@v2
+
+      - name: Build and run Docker container with Selenium
+        uses: docker://selenium/standalone-chrome:latest
+        with:
+          entrypoint: /bin/bash
+        run: |
+          # Install dependencies
+          apt-get update
+          apt-get install -y python3-pip
+          pip3 install selenium
+
+          # Run the Python script
+          python3 your_script.py
