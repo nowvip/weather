@@ -24,7 +24,7 @@ jobs:
       id: fetch_data
       run: |
         # 运行 PHP 脚本并输出结果
-        php script.php > result.txt
+        php php/hatq.php > result.txt
         # 从 result.txt 提取 mp4Url 和 createdAt
         mp4Url=$(grep 'MP4 URL:' result.txt | sed 's/MP4 URL: //')
         createdAt=$(grep 'Created At:' result.txt | sed 's/Created At: //')
