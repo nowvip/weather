@@ -1,0 +1,27 @@
+name: Download Video
+
+on:
+  push:
+    branches:
+      - main  # 你可以根据需要修改触发条件
+
+jobs:
+  download:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
+
+    - name: Download video
+      run: |
+        mkdir -p videos
+        curl -L "https://f.video.weibocdn.com/o0/upYsSAfSlx08hPMFjUF20104120146750E010.mp4?label=mp4_720p&template=1280x720.25.0&ori=0&ps=1BVp4ysnknHVZu&Expires=1725719310&ssig=Epvlpgthcb&KID=unistore,video" -o videos/my_video.mp4
+
+    - name: Commit video to repository
+      run: |
+        git config --global user.name 'GitHub Actions'
+        git config --global user.email 'actions@github.com'
+        git add videos/my_video.mp4
+        git commit -m 'Add downloaded video'
+        git push
