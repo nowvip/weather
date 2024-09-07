@@ -25,7 +25,7 @@ jobs:
       run: |
         # 运行 PHP 脚本并输出结果
         php php/hatq.php
-        php php/hatq.php > videos/result.txt
+        #php php/hatq.php > videos/result.txt
         # 从 result.txt 提取 mp4Url 和 createdAt
         mp4Url=$(grep 'MP4 URL:' result.txt | sed 's/MP4 URL: //')
         createdAt=$(grep 'Created At:' result.txt | sed 's/Created At: //')
