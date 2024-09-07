@@ -1,10 +1,8 @@
 name: Download HATQ Video
 
 on:
-  push:
-    branches:
-      - main  # 你可以根据需要修改触发条件
-
+  workflow_dispatch:
+  
 jobs:
   download:
     runs-on: ubuntu-latest
