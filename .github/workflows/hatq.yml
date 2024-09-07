@@ -27,8 +27,8 @@ jobs:
         php php/hatq.php
         #php php/hatq.php > videos/result.txt
         # 从 result.txt 提取 mp4Url 和 createdAt
-        mp4Url=$(grep 'MP4 URL:' result.txt | sed 's/MP4 URL: //')
-        createdAt=$(grep 'Created At:' result.txt | sed 's/Created At: //')
+        mp4Url=$(grep 'MP4 URL:' videos/result.txt | sed 's/MP4 URL: //')
+        createdAt=$(grep 'Created At:' videos/result.txt | sed 's/Created At: //')
         echo "mp4Url=$mp4Url" >> $GITHUB_ENV
         echo "createdAt=$createdAt" >> $GITHUB_ENV
 
