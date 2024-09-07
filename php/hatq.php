@@ -37,11 +37,16 @@ $createdAt = $dateTime->format('Y-m-d_H-i-s');
 $source = $cardGroup['page_info']['content1'];
 
 // 检查 source 并提取 mp4_720p_mp4
+// 构建要写入文件的内容
+$output = "";
 if ($source === '河南气象的微博视频') {
     $mp4Url = $cardGroup['page_info']['urls']['mp4_720p_mp4'];
-    echo "Created At: " . $createdAt . "\n";
-    echo "MP4 URL: " . $mp4Url . "\n";
+    $output .= "Created At: " . $createdAt . "\n";
+    $output .= "MP4 URL: " . $mp4Url . "\n";
 } else {
-    echo "Source does not match.\n";
+    $output .= "Source does not match.\n";
 }
+
+// 写入到 result.txt 文件中
+file_put_contents('videos/result.txt', $output, FILE_APPEND);
 ?>
