@@ -1,4 +1,4 @@
-name: Download Video
+name: Download HATQ Video
 
 on:
   push:
