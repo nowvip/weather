@@ -17,6 +17,10 @@ jobs:
         video_url=$(php php/hatq.php | grep 'video_url=' | cut -d '=' -f 2)
         echo "::set-output name=video_url::$video_url"
 
+    - name: Output video_url to console
+      run: |
+        echo "The video URL is: ${{ steps.set_video_url.outputs.video_url }}"
+
     - name: Download video
       run: |
         mkdir -p videos
