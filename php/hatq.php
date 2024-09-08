@@ -45,6 +45,16 @@ if ($source === '河南气象的微博视频') {
     //echo "Created At:" .$createdAt. "\n";
     //echo "Source: " . $source . "\n";
     //echo $mp4Url ."\n";
+
+    // 创建数据字符串
+    $dataString = 'getLbDatas({"data":[{"url":"https://mirror.ghproxy.com/https://raw.githubusercontent.com/nowvip/weather/main/videos/hatq.mp4","updateTime":"' . $createdAt . '"}]})';
+    
+    // 文件路径
+    $file = 'php/hatq_json.txt';
+    
+    // 将数据写入文件
+    file_put_contents($file, $dataString);
+
     
     // 在 GitHub Actions 中输出 video_url 变量
     // 使用 json_encode() 输出 URL，确保其完整性
