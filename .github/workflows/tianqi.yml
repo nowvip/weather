@@ -54,8 +54,8 @@ jobs:
       #run: pwd
 
     - name: Run PHP script
-      env:
-          HATQ_JSON_URL: ${{ secrets.HATQ_JSON_URL }}
+      #env:
+          #HATQ_JSON_URL: ${{ secrets.HATQ_JSON_URL }}
       run: |
         php php/list.php  # 运行你的 PHP 脚本
 
