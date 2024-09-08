@@ -16,6 +16,8 @@ if ($data === null) {
     die('Error decoding JSON data.');
 }
 
+//print_r($data) ;
+
 // 提取第一个 card_group 元素
 $cardGroup = $data['data']['cards'][0]['card_group'][0]['mblog'];
 
@@ -31,22 +33,24 @@ if ($dateTime === false) {
 }
 
 // 格式化为目标格式
-$createdAt = $dateTime->format('Y-m-d_H-i-s');
+$createdAt = $dateTime->format('Y-m-d H:i:s');
+
 
 // 提取source
 $source = $cardGroup['page_info']['content1'];
 
 // 检查 source 并提取 mp4_720p_mp4
-// 构建要写入文件的内容
-$output = "";
 if ($source === '河南气象的微博视频') {
     $mp4Url = $cardGroup['page_info']['urls']['mp4_720p_mp4'];
-    $output .= "Created At: " . $createdAt . "\n";
-    $output .= "MP4 URL: " . $mp4Url . "\n";
+    //echo "Created At:" .$createdAt. "\n";
+    //echo "Source: " . $source . "\n";
+    //echo $mp4Url ."\n";
+    
+    // 在 GitHub Actions 中输出 video_url 变量
+    echo "video_url=$mp4Url";
+    
+    //echo 'getLbDatas({"data":[{"url":"'. $mp4Url .'","updateTime":"'.$createdAt.'"}]})';
 } else {
-    $output .= "Source does not match.\n";
+    echo "Source does not match.\n";
 }
-
-// 写入到 result.txt 文件中
-file_put_contents('videos/result.txt', $output, FILE_APPEND);
 ?>
