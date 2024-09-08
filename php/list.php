@@ -1,5 +1,5 @@
 <?php
-$hatq_url = getenv('HATQ_JSON_URL');
+//$hatq_url = getenv('HATQ_JSON_URL');
 $arr_urls = array(
     '1台' => 'https://www.weather.com.cn/pubm/zhaowen.htm',
     '2台' => 'https://www.weather.com.cn/pubm/diyiyinxiang.htm',
@@ -8,7 +8,7 @@ $arr_urls = array(
     '5台' => 'https://www.weather.com.cn/pubm/tiyu.htm',
     '7台' => 'https://www.weather.com.cn/pubm/cctv7.htm',
     '联播 预报' => 'https://www.weather.com.cn/pubm/video_lianbo_2021.htm',
-    '河南' => $hatq_url,
+    '河南' => 'https://raw.githubusercontent.com/nowvip/weather/main/php/hatq_json.txt',
 );
 
 $content='';
