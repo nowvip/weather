@@ -11,10 +11,10 @@ jobs:
     - name: Checkout code
       uses: actions/checkout@v3
 
-    - name: Run PHP script to set video URL
+    - name: Run PHP script to get video URL
       id: set_video_url
       run: |
-        video_url=$(php php/hatq.php | grep 'video_url=' | cut -d '=' -f 2)
+        video_url=$(php php/hatq.php | jq -r '.video_url')
         echo "::set-output name=video_url::$video_url"
 
     - name: Output video_url to console
