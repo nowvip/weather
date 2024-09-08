@@ -15,11 +15,11 @@ jobs:
       id: set_video_url
       run: |
         video_url=$(php php/hatq.php | jq -r '.video_url')
-        echo "::set-output name=video_url::$video_url"
-
+        echo "video_url=$video_url" >> $GITHUB_ENV
+        
     - name: Output video_url to console
       run: |
-        echo "The video URL is: ${{ steps.set_video_url.outputs.video_url }}"
+        echo "The video URL is: ${{ env.video_url }}"
 
     - name: Download video
       run: |
@@ -39,7 +39,7 @@ jobs:
           -H "Sec-Fetch-Mode: navigate" \
           -H "Sec-Fetch-Site: cross-site" \
           -H "Sec-Fetch-User: ?1" \
-          ${{ steps.set_video_url.outputs.video_url }} -o videos/hatq.mp4
+          "${{ env.video_url }}" -o videos/hatq.mp4
             
     - name: Commit video to repository
       run: |
