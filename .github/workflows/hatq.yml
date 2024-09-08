@@ -50,6 +50,7 @@ jobs:
         
         # 添加文件到暂存区
         git add videos/hatq.mp4
+        git add php/hatq_json.txt
         
         # 检查是否有更改
         if [[ `git status --porcelain` ]]; then
