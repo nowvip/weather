@@ -31,8 +31,6 @@ jobs:
           -H "Accept-Language: zh-CN,zh;q=0.9" \
           -H "Cache-Control: max-age=0" \
           -H "DNT: 1" \
-          -H "If-None-Match: 6wHZnmOslx08hPMELIjC01041200uU7C0E010" \
-          -H "Range: bytes=0-1048575" \
           -H "Referer: https://m.weibo.cn/search?containerid=100103type%3D1%26q%3D%23%E9%A2%84%E6%8A%A5%E5%A4%A9%E5%A4%A9%E7%9C%8B%23" \
           -H "Upgrade-Insecure-Requests: 1" \
           -H "Sec-Fetch-Dest: document" \
