@@ -24,8 +24,23 @@ jobs:
     - name: Download video
       run: |
         mkdir -p videos
-        curl -v -L -H "User-Agent: Mozilla/5.0" -H "Referer: https://m.weibo.cn" ${{ steps.set_video_url.outputs.video_url }} -o videos/hatq.mp4
-
+        curl -L \
+          -H "User-Agent: Mozilla/5.0 (iPhone; CPU iPhone OS 13_2_3 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.0.3 Mobile/15E148 Safari/604.1" \
+          -H "Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9" \
+          -H "Accept-Encoding: gzip, deflate, br" \
+          -H "Accept-Language: zh-CN,zh;q=0.9" \
+          -H "Cache-Control: max-age=0" \
+          -H "DNT: 1" \
+          -H "If-None-Match: 6wHZnmOslx08hPMELIjC01041200uU7C0E010" \
+          -H "Range: bytes=0-1048575" \
+          -H "Referer: https://m.weibo.cn/search?containerid=100103type%3D1%26q%3D%23%E9%A2%84%E6%8A%A5%E5%A4%A9%E5%A4%A9%E7%9C%8B%23" \
+          -H "Upgrade-Insecure-Requests: 1" \
+          -H "Sec-Fetch-Dest: document" \
+          -H "Sec-Fetch-Mode: navigate" \
+          -H "Sec-Fetch-Site: cross-site" \
+          -H "Sec-Fetch-User: ?1" \
+          ${{ steps.set_video_url.outputs.video_url }} -o videos/hatq.mp4
+            
     - name: Commit video to repository
       run: |
         git config --global user.name 'GitHub Actions'
