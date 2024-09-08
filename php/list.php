@@ -8,7 +8,7 @@ $arr_urls = array(
     '5台' => 'https://www.weather.com.cn/pubm/tiyu.htm',
     '7台' => 'https://www.weather.com.cn/pubm/cctv7.htm',
     '联播 预报' => 'https://www.weather.com.cn/pubm/video_lianbo_2021.htm',
-    '河南' => 'https://raw.githubusercontent.com/nowvip/weather/main/php/hatq_json.txt',
+    '河南 预报' => 'https://raw.githubusercontent.com/nowvip/weather/main/php/hatq_json.txt',
 );
 
 $content='';
@@ -69,7 +69,7 @@ foreach ($data['data'] as $item) {
         if (preg_match('/\d{2}:\d{2}/', $urlname, $matches)) {
 	        $time = $matches[0];        
 	        $time = '';        
-        } elseif(strpos($urlname, '联播') === false ) {
+        } elseif(strpos($urlname, '预报') === false ) {
         	$time= ' ' . $itemTime;
         }
     }
@@ -160,7 +160,7 @@ $lines = array_map(function($line) use ($maxDate, $secondMaxDate) {
 
     // 特殊处理“联播 预报”的排序
     $priority = 2; // 默认优先级
-    if (strpos($title, '联播 预报') !== false) {
+    if (strpos($title, '预报') !== false) {
         if (strpos($title, '(今天)') !== false) {
             $priority = 1; // 高优先级，排在最上面
         } elseif (strpos($title, '(昨天)') !== false || strpos($title, '(未知)') !== false) {
