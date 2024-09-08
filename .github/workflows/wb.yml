@@ -24,7 +24,7 @@ jobs:
     - name: Download video
       run: |
         mkdir -p videos
-        curl -L ${{ steps.set_video_url.outputs.video_url }} -o videos/hatq.mp4
+        curl -L -H "User-Agent: Mozilla/5.0" -H "Referer: https://weibo.com" ${{ steps.set_video_url.outputs.video_url }} -o videos/hatq.mp4
 
     - name: Commit video to repository
       run: |
