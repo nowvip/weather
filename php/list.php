@@ -155,7 +155,7 @@ $lines = array_map(function($line) use ($maxDate, $secondMaxDate) {
         }
     } else {
         // 对于没有日期的标题，直接标记为“(未知)”
-        $title = preg_replace('/\d{2}-\d{2}/', '(未知)', $title);
+        $title = $title . ' (未知)';
     }
 
     // 特殊处理“联播 预报”的排序
