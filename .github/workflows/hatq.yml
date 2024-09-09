@@ -4,7 +4,7 @@ on:
   schedule:
     - cron: "00 11 * * *"   #19:00
     - cron: "20 11 * * *"   #19:20
-    - cron: "30 11 * * *"   #19:30
+    #- cron: "30 11 * * *"   #19:30
   workflow_dispatch:
   
 jobs:
