@@ -53,10 +53,14 @@ if ($data === NULL) {
 // 处理 JSON 数据并输出符合条件的数据
 foreach ($data['data'] as $item) {
     $updateTime = $item['updateTime'];
-    //$itemDate = explode(' ', $updateTime)[0]; // 提取日期部分
-    $itemDate = substr($updateTime, 5, 5);//从第6个字符开始，提取5个字符,提取月份和日期部分
-    $itemTime = substr($updateTime, 11, 5);//从第6个字符开始，提取5个字符,提取月份和日期部分
-       
+    if($updateTime){
+         //$itemDate = explode(' ', $updateTime)[0]; // 提取日期部分
+         $itemDate = substr($updateTime, 5, 5);//从第6个字符开始，提取5个字符,提取月份和日期部分
+         $itemTime = substr($updateTime, 11, 5);//从第6个字符开始，提取5个字符,提取月份和日期部分
+    }else{
+	 $itemDate = '';
+	 $itemTime = '';    
+    }   
     $url = $item['url'];
     $title = $item['title'];
     //echo $title .'\n';
@@ -155,7 +159,7 @@ $lines = array_map(function($line) use ($maxDate, $secondMaxDate) {
         }
     } else {
         // 对于没有日期的标题，直接标记为“(未知)”
-        $title = $title . ' (未知)';
+        $title = $title . '(未知)';
     }
 
     // 特殊处理“联播 预报”的排序
