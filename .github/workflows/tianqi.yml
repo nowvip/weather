@@ -14,6 +14,12 @@ on:
     - cron: "0 15 * * *"   #23:00
   workflow_dispatch:
 
+  # 监听 hatq.yml 完成
+  workflow_run:
+    workflows: ["Download HATQ Video"]
+    types:
+      - completed
+
 jobs:
   run-php-script:
     runs-on: ubuntu-latest
