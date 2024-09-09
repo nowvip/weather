@@ -62,6 +62,9 @@ if ($source === '河南气象的微博视频') {
     
     //echo 'getLbDatas({"data":[{"url":"'. $mp4Url .'","updateTime":"'.$createdAt.'"}]})';
 } else {
-    echo "Source does not match.\n";
+    //echo "Source does not match.\n";
+    // 创建数据字符串
+    $dataString = 'getLbDatas({"data":[{"url":"https://mirror.ghproxy.com/https://raw.githubusercontent.com/nowvip/weather/main/videos/hatq.mp4","updateTime":""}]})';
+    echo json_encode(['video_url' => '']);
 }
 ?>
