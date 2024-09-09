@@ -25,6 +25,27 @@ jobs:
       run: |
         echo "The video URL is: ${{ env.video_url }}"
 
+    - name: Delete videos Folder
+      run: |
+        if [ -d "videos/" ]; then
+          # 删除 videos 文件夹
+          rm -rf videos/
+          git rm -r --cached videos/
+          
+          # 检查是否有更改要提交
+          if git diff --cached --quiet; then
+            echo "No changes to commit"
+          else
+            git commit -m "Delete videos folder"
+            git push
+          fi
+        else
+          echo "videos/ directory not found, skipping deletion"
+        fi
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUBS_TOKEN }}
+
+
     - name: Download video
       run: |
         mkdir -p videos
