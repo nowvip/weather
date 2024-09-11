@@ -19,7 +19,7 @@ if ($data === null) {
 //print_r($data) ;
 
 // 提取第一个 card_group 元素
-$cardGroup = $data['data']['cards'][0]['card_group'][0]['mblog'];
+$cardGroup = $data['data']['cards'][10]['card_group'][0]['mblog'];
 
 // 提取 created_at, 原始日期时间字符串 "Sat Sep 07 18:50:01 +0800 2024"
 $createdAt = $cardGroup['created_at'];
