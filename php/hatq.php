@@ -34,7 +34,7 @@ if ($dateTime === false) {
 
 // 格式化为目标格式
 $createdAt = $dateTime->format('Y-m-d H:i:s');
-echo "updateTime:" . $createdAt . "\n";
+//echo "updateTime:" . $createdAt . "\n";
 
 // 提取source
 $source = $cardGroup['page_info']['content1'];
