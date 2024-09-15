@@ -59,7 +59,8 @@ if ($source === '河南气象的微博视频') {
     // 在 GitHub Actions 中输出 video_url 变量
     // 使用 json_encode() 输出 URL，确保其完整性
     echo json_encode(['video_url' => $mp4Url]);
-    
+
+    echo "updateTime:" . $createdAt;
     //echo 'getLbDatas({"data":[{"url":"'. $mp4Url .'","updateTime":"'.$createdAt.'"}]})';
 } else {
     //echo "Source does not match.\n";
