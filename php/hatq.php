@@ -34,7 +34,7 @@ if ($dateTime === false) {
 
 // 格式化为目标格式
 $createdAt = $dateTime->format('Y-m-d H:i:s');
-
+echo "updateTime:" . $createdAt . "\n";
 
 // 提取source
 $source = $cardGroup['page_info']['content1'];
@@ -60,7 +60,7 @@ if ($source === '河南气象的微博视频') {
     // 使用 json_encode() 输出 URL，确保其完整性
     echo json_encode(['video_url' => $mp4Url]);
 
-    echo "updateTime:" . $createdAt;
+    
     //echo 'getLbDatas({"data":[{"url":"'. $mp4Url .'","updateTime":"'.$createdAt.'"}]})';
 } else {
     //echo "Source does not match.\n";
