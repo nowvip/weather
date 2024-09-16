@@ -1,5 +1,4 @@
 <?php
-//$hatq_url = getenv('HATQ_JSON_URL');
 $arr_urls = array(
     '1台' => 'https://www.weather.com.cn/pubm/zhaowen.htm',
     '2台' => 'https://www.weather.com.cn/pubm/diyiyinxiang.htm',
