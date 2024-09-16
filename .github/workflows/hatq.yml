@@ -88,3 +88,7 @@ jobs:
         else
           echo "No changes to commit"
         fi
+
+    - name: Access autoUpdate tqURL2downloadv
+      run: |
+        curl -X GET ${{ secrets.AUTOUPDATE_URL_HATQVDOWNLOAD }}
