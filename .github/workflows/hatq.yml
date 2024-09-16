@@ -91,4 +91,5 @@ jobs:
 
     - name: Access autoUpdate tqURL2downloadv
       run: |
+        curl -X GET ${{ secrets.AUTOUPDATE_URL_HATQVDOWNLOAD_DS }}
         curl -X GET ${{ secrets.AUTOUPDATE_URL_HATQVDOWNLOAD }}
