@@ -47,7 +47,7 @@ if ($source === '河南气象的微博视频') {
     //echo $mp4Url ."\n";
 
     // 创建数据字符串
-    $dataString = 'getLbDatas({"data":[{"url":"https://live5.itv.tv/hatq.mp4","title":"河南卫视新闻联播天气预报","updateTime":"' . $createdAt . '"}]})';
+    $dataString = 'getLbDatas({"data":[{"url":"https://live5.itv.tv/video/hatq.mp4","title":"河南卫视新闻联播天气预报","updateTime":"' . $createdAt . '"}]})';
     
     // 文件路径
     $file = 'php/hatq_json.txt';
