@@ -1,6 +1,7 @@
 <?php
 // 获取 JSON 数据
-$url = 'https://m.weibo.cn/api/container/getIndex?containerid=231522type%3D1%26t%3D10%26q%3D%23%E9%A2%84%E6%8A%A5%E5%A4%A9%E5%A4%A9%E7%9C%8B%23&isnewpage=1&luicode=10000011&lfid=100103type%3D1%26q%3D%23%E9%A2%84%E6%8A%A5%E5%A4%A9%E5%A4%A9%E7%9C%8B%23&page_type=searchall';
+//$url = 'https://m.weibo.cn/api/container/getIndex?containerid=231522type%3D1%26t%3D10%26q%3D%23%E9%A2%84%E6%8A%A5%E5%A4%A9%E5%A4%A9%E7%9C%8B%23&isnewpage=1&luicode=10000011&lfid=100103type%3D1%26q%3D%23%E9%A2%84%E6%8A%A5%E5%A4%A9%E5%A4%A9%E7%9C%8B%23&page_type=searchall';
+$url = 'https://m.weibo.cn/api/container/getIndex?containerid=100103type%3D61%26q%3D%23%E9%A2%84%E6%8A%A5%E5%A4%A9%E5%A4%A9%E7%9C%8B%23%26t%3D&page_type=searchall';
 $json = file_get_contents($url);
 
 // 检查获取数据是否成功
@@ -19,7 +20,8 @@ if ($data === null) {
 //print_r($data) ;
 
 // 提取第一个 card_group 元素
-$cardGroup = $data['data']['cards'][10]['card_group'][0]['mblog'];
+//$cardGroup = $data['data']['cards'][0]['card_group'][0]['mblog'];
+$cardGroup = $data['data']['cards'][0]['mblog'];
 
 // 提取 created_at, 原始日期时间字符串 "Sat Sep 07 18:50:01 +0800 2024"
 $createdAt = $cardGroup['created_at'];
