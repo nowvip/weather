@@ -4,7 +4,7 @@ import requests
 # 设置代理服务器地址，从环境变量获取代理服务器IP和端口
 proxies = {
     "http": os.getenv("PROXY_SERVER"),
-    "https": os.getenv("PROXY_SERVER")
+    #"https": os.getenv("PROXY_SERVER")
 }
 
 # 从环境变量中获取 APP_ID 和 APP_SECRET
