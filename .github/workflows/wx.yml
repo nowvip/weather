@@ -2,7 +2,7 @@ name: Push WeChat Message with Proxy
 
 on:
   schedule:
-    - cron: '0 8 * * *'  # 每天 UTC 8点定时触发
+    #- cron: '0 8 * * *'  # 每天 UTC 8点定时触发
     
   workflow_dispatch:
 
