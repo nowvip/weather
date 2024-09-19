@@ -26,10 +26,10 @@ jobs:
 
       - name: Run message script
         env:
-          APP_ID: ${{ secrets.APP_ID }}
-          APP_SECRET: ${{ secrets.APP_SECRET }}
-          TAG_ID: ${{ secrets.TAG_ID }}
-          PROXY_SERVER: ${{ secrets.PROXY_SERVER }}
+          APP_ID: ${{ secrets.WX_APP_ID }}
+          APP_SECRET: ${{ secrets.WX_APP_SECRET }}
+          TAG_ID: ${{ secrets.WX_TAG_TQYB_ID }}
+          PROXY_SERVER: ${{ secrets.WX_PROXY_SERVER }}
         run: |
           python py/wxpush.py  # 替换为你的 Python 脚本文件名
 
