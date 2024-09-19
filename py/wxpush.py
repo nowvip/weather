@@ -16,7 +16,7 @@ proxies = {
 
 # 获取 access_token
 def get_access_token(app_id, app_secret):
-    url = "https://api.weixin.qq.com/cgi-bin/token"
+    url = "https://api.weixin.qq.com/cgi-bin/stable_token"
     params = {
         "grant_type": "client_credential",
         "appid": app_id,
