@@ -12,7 +12,7 @@ APP_SECRET = os.getenv("APP_SECRET")
 # 设置代理服务器地址
 proxies = {
     "http": os.getenv("PROXY_SERVER"),
-    #"https": os.getenv("PROXY_SERVER")
+    "https": os.getenv("PROXY_SERVER")
 }
 
 # 获取稳定的 access_token
@@ -38,17 +38,17 @@ def get_access_token(app_id, app_secret):
         raise Exception(f"获取 access_token 出现错误: {str(e)}")
 
 # 发送群发消息给指定标签用户
-def send_message_to_tag(access_token, tag_id, message):
+def send_message_to_group(access_token, group_id, message):
     url = f"https://api.weixin.qq.com/cgi-bin/message/mass/sendall?access_token={access_token}"
     data = {
         "filter": {
             "is_to_all": False,  # 不发送给所有用户
-            "tag_id": tag_id      # 指定的标签ID
+            "group_id": group_id  # 指定的标签ID，正确的字段是 group_id
         },
         "text": {
-            "content": message    # 消息内容
+            "content": message  # 消息内容
         },
-        "msgtype": "text"         # 消息类型
+        "msgtype": "text"  # 消息类型
     }
     try:
         response = requests.post(url, json=data, proxies=proxies)
@@ -67,12 +67,12 @@ if __name__ == "__main__":
         # 获取 access_token
         access_token = get_access_token(APP_ID, APP_SECRET)
 
-        # 指定标签的 tag_id (假设是100)
-         TAG_ID = os.getenv("TAG_ID")  # 从环境变量中获取 VIP_tag 的标签ID
+        # 指定标签的 group_id (假设是100)
+        GROUP_ID = os.getenv("TAG_ID")  # 替换为实际的标签ID
         MESSAGE = "这是发送给 '天气预报' 标签用户的消息"
         
         # 发送消息
-        response = send_message_to_tag(access_token, TAG_ID, MESSAGE)
+        response = send_message_to_group(access_token, GROUP_ID, MESSAGE)
         if response:
             print("群发消息结果：", response)
         else:
