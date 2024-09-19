@@ -31,5 +31,5 @@ jobs:
           TAG_ID: ${{ secrets.TAG_ID }}
           PROXY_SERVER: ${{ secrets.PROXY_SERVER }}
         run: |
-          python your_script.py  # 替换为你的 Python 脚本文件名
+          python py/wxpush.py  # 替换为你的 Python 脚本文件名
 
