@@ -11,20 +11,19 @@ APP_SECRET = os.getenv("APP_SECRET")
 
 # 设置代理服务器地址
 proxies = {
-    #"http": os.getenv("PROXY_SERVER"),
     "https": os.getenv("PROXY_SERVER")
 }
 
-# 获取稳定的 access_token
+# 获取 access_token
 def get_access_token(app_id, app_secret):
-    url = "https://api.weixin.qq.com/cgi-bin/stable_token"
-    data = {
+    url = "https://api.weixin.qq.com/cgi-bin/token"
+    params = {
         "grant_type": "client_credential",
         "appid": app_id,
         "secret": app_secret
     }
     try:
-        response = requests.post(url, json=data, proxies=proxies)
+        response = requests.get(url, params=params, proxies=proxies)
         if response.status_code == 200:
             result = response.json()
             if result.get("errcode") == 0:  # 确保没有返回错误
@@ -43,7 +42,7 @@ def send_message_to_group(access_token, group_id, message):
     data = {
         "filter": {
             "is_to_all": False,  # 不发送给所有用户
-            "group_id": group_id  # 指定的标签ID，正确的字段是 group_id
+            "group_id": group_id  # 指定的标签ID
         },
         "text": {
             "content": message  # 消息内容
