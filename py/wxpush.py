@@ -11,7 +11,7 @@ APP_SECRET = os.getenv("APP_SECRET")
 
 # 设置代理服务器地址
 proxies = {
-    "http": os.getenv("PROXY_SERVER"),
+    #"http": os.getenv("PROXY_SERVER"),
     "https": os.getenv("PROXY_SERVER")
 }
 
