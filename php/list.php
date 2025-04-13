@@ -28,9 +28,9 @@ if ($jsonData === FALSE) {
 curl_close($ch);
 
 // 打印原始 JSON 数据
-//echo "Raw JSON Data:\n";
-//echo $jsonData;
-//echo "\n";
+echo "Raw JSON Data:\n";
+echo $jsonData;
+echo "\n";
 
 // 使用正则表达式提取 JSON 数据部分
 preg_match('/getLbDatas\((\{.*\})\)/', $jsonData, $matches);
