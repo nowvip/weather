@@ -33,8 +33,9 @@ echo $jsonData;
 echo "\n";
 
 // 使用正则表达式提取 JSON 数据部分
-preg_match('/getLbDatas\((\{.*\})\)/', $jsonData, $matches);
-
+//preg_match('/getLbDatas\((\{.*\})\)/', $jsonData, $matches);
+preg_match('/getLbDatas\(\s*(\{.*?\})\s*\)/s', $jsonData, $matches)
+	
 if (isset($matches[1])) {
     $jsonStr = $matches[1];
 } else {
