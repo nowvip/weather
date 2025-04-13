@@ -7,7 +7,7 @@ $arr_urls = array(
     '5台' => 'https://www.weather.com.cn/pubm/tiyu.htm',
     '7台' => 'https://www.weather.com.cn/pubm/cctv7.htm',
     '联播 预报' => 'https://www.weather.com.cn/pubm/video_lianbo_2021.htm',
-    //'河南 预报' => 'https://raw.githubusercontent.com/nowvip/weather/main/php/hatq_json.txt',
+    '河南 预报' => 'https://raw.githubusercontent.com/nowvip/weather/main/php/hatq_json.txt',
 );
 
 $content='';
