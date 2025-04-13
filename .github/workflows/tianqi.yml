@@ -39,7 +39,8 @@ jobs:
           rm -rf php/tq.txt
           git rm -r --cached php/tq.txt
           git commit -m "Delete tq.txt" || echo "No changes to commit"
-          git push
+          git pull --rebase origin main
+          git push origin main
         else
           echo "tq.txt not found, skipping deletion"
         fi
