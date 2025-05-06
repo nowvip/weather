@@ -1,8 +1,0 @@
-7台 13:20 (今天),https://vod.weathertv.cn/video/2025/5/6/202505061746508839189.mp4
-5台 13:15 (今天),https://vod.weathertv.cn/video/2025/5/6/202505061746508537392.mp4
-4台 12:54 (今天),https://vod.weathertv.cn/video/2025/5/6/202505061746510643988.mp4
-1台 12:30 (今天),https://vod.weathertv.cn/video/2025/5/6/202505061746508841333.mp4
-2台 08:50 (今天),https://vod.weathertv.cn/video/2025/5/6/202505061746492634009.mp4
-1台 07:55 (今天),https://vod.weathertv.cn/video/2025/5/6/202505061746492635796.mp4
-联播 预报 (昨天),https://vod.weathertv.cn/video/2025/5/5/202505051746458119223.mp4
-河南 预报 (昨天),https://live2.itv.tv/video/hatq.mp4
