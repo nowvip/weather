@@ -1,0 +1,8 @@
+河南 预报 (今天),https://live2.itv.tv/video/hatq.mp4
+7台 13:23 01-13,https://vod.weathertv.cn/video/2026/1/13/202601131768281786359.mp4
+5台 13:14 01-13,https://vod.weathertv.cn/video/2026/1/13/202601131768281293580.mp4
+1台 12:30 01-13,https://vod.weathertv.cn/video/2026/1/13/202601131768281411628.mp4
+2台 08:43 01-13,https://vod.weathertv.cn/video/2026/1/13/202601131768265003677.mp4
+联播 预报 01-13,https://vod.weathertv.cn/video/2026/1/13/202601131768317278782.mp4
+1台 07:55 (昨天),https://vod.weathertv.cn/video/2026/1/14/202601141768350981394.mp4
+4台 04:54 (昨天),https://vod.weathertv.cn/video/2026/1/14/202601141768340580209.mp4
