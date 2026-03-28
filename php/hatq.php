@@ -2,7 +2,18 @@
 // 获取 JSON 数据
 //$url = 'https://m.weibo.cn/api/container/getIndex?containerid=231522type%3D1%26t%3D10%26q%3D%23%E9%A2%84%E6%8A%A5%E5%A4%A9%E5%A4%A9%E7%9C%8B%23&isnewpage=1&luicode=10000011&lfid=100103type%3D1%26q%3D%23%E9%A2%84%E6%8A%A5%E5%A4%A9%E5%A4%A9%E7%9C%8B%23&page_type=searchall';
 $url = 'https://m.weibo.cn/api/container/getIndex?containerid=100103type%3D61%26q%3D%23%E9%A2%84%E6%8A%A5%E5%A4%A9%E5%A4%A9%E7%9C%8B%23%26t%3D&page_type=searchall';
-$json = file_get_contents($url);
+
+$options = [
+    "http" => [
+        "method" => "GET",
+        "header" => "User-Agent: Mozilla/5.0\r\n"
+    ]
+];
+
+$context = stream_context_create($options);
+
+$json = file_get_contents($url, false, $context);
+//$json = file_get_contents($url);
 
 // 检查获取数据是否成功
 if ($json === false) {
