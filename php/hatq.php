@@ -44,9 +44,9 @@ $source = $cardGroup['page_info']['content1'];
 // 检查 source 并提取 mp4_720p_mp4
 if ($source === '河南气象的微博视频') {
     $mp4Url = $cardGroup['page_info']['urls']['mp4_720p_mp4'];
-    //echo "Created At:" .$createdAt. "\n";
-    //echo "Source: " . $source . "\n";
-    //echo $mp4Url ."\n";
+    echo "Created At:" .$createdAt. "\n";
+    echo "Source: " . $source . "\n";
+    echo $mp4Url ."\n";
 
     // 创建数据字符串
     $dataString = 'getLbDatas({"data":[{"url":"https://live2.itv.tv/video/hatq.mp4","title":"河南卫视新闻联播天气预报","updateTime":"' . $createdAt . '"}]})';
