@@ -1,0 +1,7 @@
+2台 08:43 (今天),https://vod.weathertv.cn/video/2026/9/24/202609241790210591768.mp4
+1台 07:55 (今天),https://vod.weathertv.cn/video/2026/9/24/202609241790209330544.mp4
+4台 04:54 (今天),https://vod.weathertv.cn/video/2026/9/24/202609241790199823132.mp4
+7台 13:21 (昨天),https://vod.weathertv.cn/video/2026/9/23/202609231790140904016.mp4
+5台 13:14 (昨天),https://vod.weathertv.cn/video/2026/9/23/202609231790140470255.mp4
+1台 12:30 (昨天),https://vod.weathertv.cn/video/2026/9/23/202609231790140530147.mp4
+联播 预报 (昨天),https://vod.weathertv.cn/video/2026/9/23/202609231790176533473.mp4
