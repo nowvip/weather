@@ -1,7 +1,0 @@
-2台 08:43 (今天),https://vod.weathertv.cn/video/2026/11/28/202611281795826587163.mp4
-1台 07:55 (今天),https://vod.weathertv.cn/video/2026/11/28/202611281795826175984.mp4
-4台 04:54 (今天),https://vod.weathertv.cn/video/2026/11/28/202611281795815772713.mp4
-5台 13:19 (昨天),https://vod.weathertv.cn/video/2026/11/27/202611271795756783589.mp4
-7台 13:18 (昨天),https://vod.weathertv.cn/video/2026/11/27/202611271795756729710.mp4
-1台 12:30 (昨天),https://vod.weathertv.cn/video/2026/11/27/202611271795756355688.mp4
-联播 预报 (昨天),https://vod.weathertv.cn/video/2026/11/27/202611271795792474261.mp4
